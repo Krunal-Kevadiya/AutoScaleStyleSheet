@@ -22,6 +22,7 @@ const styles = AutoScaledSheet.create({
     width: '120@s',
     height: '100@vs',
     resizeMode: 'stretch',
+    borderRadius: '10@vs',
   },
   posterTitle: {
     flex: 1,
@@ -96,7 +97,7 @@ const styles = AutoScaledSheet.create({
     color: Colors.white,
   },
   descText: {
-    fontSize: '20@ms',
+    fontSize: '22@ms',
     marginHorizontal: '10@s',
     color: Colors.buttonBlue,
     fontFamily: Fonts.desc,
