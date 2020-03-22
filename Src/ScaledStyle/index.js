@@ -1,6 +1,5 @@
 import AutoScaledSheet from './AutoScaledStyleSheet';
-import { scale, verticalScale, horizontalScale, moderateScale } from './ScalingUtils';
-import { isIphoneX, ifIphoneX, getStatusBarHeight, getBottomSpace } from './DeviceUtils';
+import { isIos, scale, verticalScale, horizontalScale, moderateScale } from './ScalingUtils';
 
 export {
   AutoScaledSheet as default,
@@ -8,8 +7,5 @@ export {
   verticalScale,
   horizontalScale, 
   moderateScale,
-  isIphoneX,
-  ifIphoneX,
-  getStatusBarHeight,
-  getBottomSpace
+  isIos
 };

@@ -27,10 +27,6 @@ const autoScaleByAnnotation = (scale, verticalScale, horizontalScale, moderateSc
   }
 
   if (moderateScaleRegex.test(value)) {
-    const scaleFactor = value.split('ms')[1];
-    if (scaleFactor) {
-      return moderateScale(size, parseFloat(scaleFactor));
-    }
     return moderateScale(size);
   }
 };
