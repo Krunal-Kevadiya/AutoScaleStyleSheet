@@ -1,33 +1,41 @@
-import { Platform, Dimensions } from 'react-native';
+import {Platform, Dimensions} from 'react-native';
 
 const dimenMin = 300;
 const dimenMax = 800;
 const dimenInterval = 30;
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 const isIos = () => {
   return Platform.OS === 'ios';
 };
 
+const isIphoneXorAbove = () => {
+  return (
+    isIos() &&
+    !Platform.isPad &&
+    !Platform.isTVOS &&
+    (height === 812 || width === 812 || (height === 896 || width === 896))
+  );
+};
 
 const getSmallestWidthDimension = (isFontScale = false) => {
-  var dimen = isIos() ? width : 0;
+  var dimen = width;
   if (isFontScale && width >= 1080) {
-      dimen = 1080;
+    dimen = 1080;
   } else {
     for (let i = dimenMin; i <= dimenMax; i = i + dimenInterval) {
       if (width >= i && width < i + dimenInterval) {
         dimen = i;
         break; // stop the loop
       }
-    } 
+    }
   }
   return dimen;
 };
 
 const getAvailableWidthDimension = () => {
-  var dimen = isIos() ? width : 0;
+  var dimen = width;
   for (let i = dimenMin; i <= dimenMax; i = i + dimenInterval) {
     if (width >= i && width < i + dimenInterval) {
       dimen = i;
@@ -38,7 +46,7 @@ const getAvailableWidthDimension = () => {
 };
 
 const getAvailableHeightDimension = () => {
-  var dimen = isIos() ? height : 0;
+  var dimen = height;
   for (let i = dimenMin; i <= dimenMax; i = i + dimenInterval) {
     if (height >= i && height < i + dimenInterval) {
       dimen = i;
@@ -78,7 +86,7 @@ const horizontalScale = size => {
   return scaleSize;
 };
 
-const moderateScale = (size) => {
+const moderateScale = size => {
   var scaleSize = size;
   var dimen = getSmallestWidthDimension(true);
   if (dimen !== 0) {
@@ -88,9 +96,4 @@ const moderateScale = (size) => {
   return scaleSize;
 };
 
-export {
-  scale,
-  verticalScale,
-  horizontalScale,
-  moderateScale
-};
+export {scale, verticalScale, horizontalScale, moderateScale};

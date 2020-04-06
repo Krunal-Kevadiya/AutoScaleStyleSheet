@@ -1,6 +1,6 @@
 const fonts = {
-  title: 'Title',
-  desc: 'Description',
+  title: 'Dottinghise',
+  desc: 'Lucien Schoenschriftv CAT',
 };
 
 export default fonts;

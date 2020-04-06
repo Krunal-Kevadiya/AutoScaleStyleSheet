@@ -5,11 +5,15 @@
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deviceList": "xcrun simctl list devices",
+    "setup": "npm i && npx jetify && cd ios && pod install && cd ..",
+    "android": " react-native run-android",
+    "ios": "react-native run-ios --simulator=\"iPhone 11 Pro Max\""
   },
   "rnpm": {
     "assets": [
-	    "./Src/Assets/fonts"
+      "./Src/Assets/fonts"
     ]
   },
   "dependencies": {
